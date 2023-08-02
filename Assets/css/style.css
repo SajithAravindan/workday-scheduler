@@ -1,6 +1,6 @@
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-family:  'Titillium Web', 'Open Sans', sans-serif; /* The First font family is from Google fonts*/
+  font-size: 15px;
 }
 
 textarea {
@@ -9,7 +9,7 @@ textarea {
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
+  padding: 1px;
 }
 
 .description {
@@ -31,16 +31,19 @@ textarea {
 }
 
 .past {
+  width:100%;
   background-color: #d3d3d3;
   color: white;
 }
 
 .present {
+  width: 100%;
   background-color: #ff6961;
   color: white;
 }
 
 .future {
+  width: 100%;
   background-color: #77dd77;
   color: white;
 }
