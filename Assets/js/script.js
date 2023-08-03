@@ -22,8 +22,7 @@ const intToTime = 5;
 function init() {
   var divDisplayCurrentDay = $('#currentDay');
   var strDisplayedCurrDate = today.format('dddd MMMM, D');
-  divDisplayCurrentDay.text(strDisplayedCurrDate);
-  divSaveStatus.hide();
+  divDisplayCurrentDay.text(strDisplayedCurrDate);  
   //Event Handler for Button Click
   $('#container').on('click', ':button', fnSaveEvent);
   //start calender
@@ -31,6 +30,7 @@ function init() {
 }
 
 function startCal() {  
+  divSaveStatus.hide();
   var objTimeObject = { //Time object that holds time to displar & Required Hours    
     HourstoDisplay: ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'],
     TimeHours: [9, 10, 11, 12, 13, 14, 15, 16, 17] // Correct answers index in the anwers object
@@ -118,9 +118,9 @@ function fnSaveEvent(event) {
     }
     tempArr.push(tempObject); //push new data into the array to be stored with other stuff
   }
-  this.parentElement.children[1].id = 'saved-item'; //tag saved descriptions so we remember to erase previous data if overwritten
-  localStorage.setItem('calDayEvents', JSON.stringify(tempArr)) //  
   divSaveStatus.show(); //Status
+  this.parentElement.children[1].id = 'saved-item'; //tag saved descriptions so we remember to erase previous data if overwritten
+  localStorage.setItem('calDayEvents', JSON.stringify(tempArr)) //   
 }
 
 init();
