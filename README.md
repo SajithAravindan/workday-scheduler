@@ -24,7 +24,7 @@ AS AN employee with a busy schedule
 * THEN the saved events persist
 
 # Demo
-
+<img src="./assets/images/05-third-party-apis-homework-demo.gif">
 
 # Review
 * Deployed Application URL: https://sajitharavindan.github.io/workday-scheduler/
