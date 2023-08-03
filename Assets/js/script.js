@@ -9,7 +9,7 @@ var strCurrentAMPM = today.format('A');
 var dtEventDate = dayjs(today).format('MMDYYYY')
 var intCurrentHour = dayjs().hour();
 var divContainer = $('#container');
-
+var divSaveStatus = $('#idSaveStatus');
 var strPastCss = "past";
 var strPresentCss = "present";
 var strFutureCss = "future";
@@ -23,15 +23,14 @@ function init() {
   var divDisplayCurrentDay = $('#currentDay');
   var strDisplayedCurrDate = today.format('dddd MMMM, D');
   divDisplayCurrentDay.text(strDisplayedCurrDate);
-
+  divSaveStatus.hide();
   //Event Handler for Button Click
   $('#container').on('click', ':button', fnSaveEvent);
   //start calender
   startCal();
 }
 
-function startCal() {
-
+function startCal() {  
   var objTimeObject = { //Time object that holds time to displar & Required Hours    
     HourstoDisplay: ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'],
     TimeHours: [9, 10, 11, 12, 13, 14, 15, 16, 17] // Correct answers index in the anwers object
@@ -65,7 +64,7 @@ function startCal() {
         }
       }
     }
-    
+    //create the Time block Div
     var elm = '<div ' +
       'class="row time-block ' + strDivClass + '" ' +
       'id="' + strDivId + '"> <div class="col-2 col-md-1 hour text-center py-3" id="' + objTimeObject.HourstoDisplay[i] + '">' + objTimeObject.HourstoDisplay[i] + '</div> ' +
@@ -85,6 +84,7 @@ function fnAssignClass(intDivTimeSlot) {
   return strDivClass;
 }
 
+//Function to Add Event to Local Storage
 function fnSaveEvent(event) {
   var tempArr = []; //initialize array
   var strTxtContent = this.parentElement.children[1].value;
@@ -119,7 +119,8 @@ function fnSaveEvent(event) {
     tempArr.push(tempObject); //push new data into the array to be stored with other stuff
   }
   this.parentElement.children[1].id = 'saved-item'; //tag saved descriptions so we remember to erase previous data if overwritten
-  localStorage.setItem('calDayEvents', JSON.stringify(tempArr)) //
+  localStorage.setItem('calDayEvents', JSON.stringify(tempArr)) //  
+  divSaveStatus.show(); //Status
 }
 
 init();

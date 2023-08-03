@@ -60,3 +60,9 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+/* Styling for the line */
+.hrcls {    
+  width: 100%;    
+  border-top: 10px solid #000000;
+}
